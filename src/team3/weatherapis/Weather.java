@@ -10,11 +10,11 @@ public class Weather {
 	private CardinalDirection windDirection;
 	private String timestamp;
 	
-	public static void main(String[] args)
-	{
-		Weather weather = new Weather("1", "2.2", "3", CardinalDirection.EAST, "83838298");
-		System.out.println(weather.toString());
-	}
+//	public static void main(String[] args)
+//	{
+//		Weather weather = new Weather("1", "2.2", "3", CardinalDirection.EAST, "83838298");
+//		System.out.println(weather.toString());
+//	}
 
 	public Weather() {
 		this("", "", "", CardinalDirection.NONE, "");
