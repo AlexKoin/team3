@@ -14,9 +14,12 @@ public class WeatherAPITest {
 	{
 		ArrayList<WeatherAPI> weatherApis = new ArrayList<WeatherAPI>();
 		
-		
+		// openweathermap.org
 		weatherApis.add(new WeatherAPIOWM());
-		
+		// weatherstack.com
+		weatherApis.add(new WeatherAPIWS());
+		// weatherapi.com
+		weatherApis.add(new WeatherAPIWAPI());
 		
 		for (WeatherAPI api : weatherApis)
 		{
@@ -34,7 +37,11 @@ public class WeatherAPITest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		CardinalDirection actual, expected;
+		
+		actual = CardinalDirection.fromDegree(180.0f);
+		expected = CardinalDirection.SOUTH;
+		assertEquals("Cardinal Direction incorrect", expected, actual);
 	}
 
 }

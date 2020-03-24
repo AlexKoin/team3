@@ -7,12 +7,25 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public interface WeatherAPI {
-	 public Weather getWeather();
-	 
-	 public static Map<String, Object> jsonToMap(String str) {
-			Map<String, Object> map = new Gson().fromJson(str, new TypeToken<HashMap<String, Object>>() {
-			}.getType());
+	/**
+	 * @return object of type Weather
+	 */
+	public Weather getWeather();
 
-			return map;
-		}
+	public static Map<String, Object> jsonToMap(String str) {
+		Map<String, Object> map = new Gson().fromJson(str, new TypeToken<HashMap<String, Object>>() {
+		}.getType());
+
+		return map;
+	}
+	
+	public static float kelvinToCelsius(float kelvin)
+	{
+		return kelvin - 273.15f;
+	}
+	
+	public static float kelvinToCelsius(String kelvin)
+	{
+		return Float.parseFloat(kelvin) - 273.15f;
+	}
 }

@@ -10,11 +10,8 @@ public class Weather {
 	private CardinalDirection windDirection;
 	private String timestamp;
 	
-//	public static void main(String[] args)
-//	{
-//		Weather weather = new Weather("1", "2.2", "3", CardinalDirection.EAST, "83838298");
-//		System.out.println(weather.toString());
-//	}
+	private static final String suffixCelsius = "°C";
+	//private static final String suffixKelvin = "°K";
 
 	public Weather() {
 		this("", "", "", CardinalDirection.NONE, "");
@@ -66,7 +63,7 @@ public class Weather {
 	}
 
 	public String toString() {
-		return "temperature: " + this.temperature + "°K,\nhumidity: " + this.humidity + ",\nwind speed: "
+		return "temperature: " + this.temperature + suffixCelsius + ",\nhumidity: " + this.humidity + ",\nwind speed: "
 				+ this.windSpeed + ",\nwind direction: " + this.windDirection;
 	}
 }

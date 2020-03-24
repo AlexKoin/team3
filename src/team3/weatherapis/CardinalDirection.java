@@ -3,11 +3,15 @@ package team3.weatherapis;
 public enum CardinalDirection {
 	NONE, NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST;
 	
-	public static CardinalDirection fromDegree(float degree)
+	/**
+	 * @param input decimal degree
+	 * @return cardinal direction
+	 */
+	public static CardinalDirection fromDegree(float inputDegree)
 	{
 		CardinalDirection direction = NONE;
 		
-		float clippedDegree = degree%360.0f;
+		float clippedDegree = inputDegree%360.0f;
 		
 		if ((clippedDegree >= 337.5f) && (clippedDegree < 22.5f))
 		{
