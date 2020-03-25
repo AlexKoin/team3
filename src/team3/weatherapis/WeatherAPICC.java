@@ -18,7 +18,7 @@ public class WeatherAPICC implements WeatherAPI {
 		Weather weather = null;
 		//String location = "riga";
 
-		String urlString = "https://api.climacell.co/v3/weather/realtime?" + "lat=56&lon=24" + "&fields=temp,humidity,wind_speed,wind_direction";
+		String urlString = "https://api.climacell.co/v3/weather/realtime?" + "lat=56.946&lon=24.105" + "&fields=temp,humidity,wind_speed,wind_direction";
 
 		StringBuilder stringBuilder = new StringBuilder();
 

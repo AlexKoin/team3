@@ -58,4 +58,40 @@ public interface WeatherAPI {
 
 		return response;
 	}
+	
+//	public static String cityToCoord(String city)
+//	{
+//		// World Cities by andruxnet
+//		String apiKey = "c37d4f31b0mshfed9db028d5666fp146dc1jsn9e7edef082e3";
+//		
+//		String urlString = "https://andruxnet-world-cities-v1.p.rapidapi.com/?query=" + city + "&searchby=city";
+//
+//		StringBuilder stringBuilder = new StringBuilder();
+//		
+//		try {			
+//			URL url = new URL(urlString);
+//			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+//
+//			conn.setRequestMethod("GET");
+//			conn.setRequestProperty("RapidAPI Project", "default-application_4288908");
+//			conn.setRequestProperty("x-rapidapi-host", "andruxnet-world-cities-v1.p.rapidapi.com");
+//			conn.setRequestProperty("x-rapidapi-key", apiKey);
+//			conn.setDoInput(true);
+//			conn.setDoOutput(true);
+//
+//			BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//
+//			String line;
+//			while ((line = reader.readLine()) != null) {
+//				stringBuilder.append(line);
+//			}
+//
+//			reader.close();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		return stringBuilder.toString();
+//	}
 }
