@@ -24,6 +24,7 @@ public class WeatherAPITest {
 		for (WeatherAPI api : weatherApis)
 		{
 			System.out.println(api.getWeather().toString());
+			System.out.println("***");
 		}
 	}
 
