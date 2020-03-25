@@ -27,7 +27,7 @@ public class WeatherAPITest {
 			System.out.println("***");
 		}
 
-		System.out.println(WeatherAPI.cityToCoord("riga"));
+		//System.out.println(WeatherAPI.cityToCoord("riga"));
 	}
 
 	@Before
