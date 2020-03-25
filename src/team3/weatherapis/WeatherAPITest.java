@@ -1,12 +1,12 @@
 package team3.weatherapis;
 
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
 
 public class WeatherAPITest {
 
@@ -21,6 +21,8 @@ public class WeatherAPITest {
 		weatherApis.add(new WeatherAPIWAPI());
 		// climacell.co
 		weatherApis.add(new WeatherAPICC());
+		// weatherbit.io
+		weatherApis.add(new WeatherAPIWB());
 
 		for (WeatherAPI api : weatherApis) {
 			System.out.println(api.getWeather().toString());
