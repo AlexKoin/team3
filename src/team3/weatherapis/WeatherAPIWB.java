@@ -25,7 +25,6 @@ public class WeatherAPIWB implements WeatherAPI {
 
             try {
                 weather.setSource(source);
-                // weather.setLocation(currentMap.get(""));
                 weather.setTemperature(details.get("temp").toString());
                 weather.setHumidity(details.get("rh").toString());
                 weather.setWindSpeed(details.get("wind_spd").toString());
@@ -34,15 +33,7 @@ public class WeatherAPIWB implements WeatherAPI {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
-
-
         }
-
-
-
-
         return weather;
     }
 }
