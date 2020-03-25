@@ -9,7 +9,6 @@ public class WeatherAPIWS implements WeatherAPI {
 
 	@Override
 	public Weather getWeather() {
-		// Weatherstack - https://weatherstack.com/quickstart
 		Weather weather = null;
 		String location = "Riga";
 
@@ -41,5 +40,4 @@ public class WeatherAPIWS implements WeatherAPI {
 
 		return weather;
 	}
-
 }

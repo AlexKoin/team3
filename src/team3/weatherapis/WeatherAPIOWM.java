@@ -31,7 +31,7 @@ public class WeatherAPIOWM implements WeatherAPI {
 				weather.setSource(source);
 				// weather.setLocation(currentMap.get(""));
 				float celsiusTemp = WeatherAPI.kelvinToCelsius(mainMap.get("temp").toString());
-				weather.setTemperature(celsiusTemp + "");
+				weather.setTemperature(Float.toString(celsiusTemp));
 				weather.setHumidity(mainMap.get("humidity").toString());
 				weather.setWindSpeed(windMap.get("speed").toString());
 				float windDirectionInDegrees = Float.parseFloat(windMap.get("deg").toString());

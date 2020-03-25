@@ -20,6 +20,8 @@ public class WeatherAPITest {
 		weatherApis.add(new WeatherAPIWS());
 		// weatherapi.com
 		weatherApis.add(new WeatherAPIWAPI());
+		// climacell.co
+		weatherApis.add(new WeatherAPICC());
 		
 		for (WeatherAPI api : weatherApis)
 		{
@@ -37,10 +39,10 @@ public class WeatherAPITest {
 	}
 
 	@Test
-	public void test() {
+	public void test01CardinalDirections() {
 		CardinalDirection actual, expected;
 		
-		actual = CardinalDirection.fromDegree(180.0f);
+		actual = CardinalDirection.fromDegree(180.0f + 22.4f);
 		expected = CardinalDirection.SOUTH;
 		assertEquals("Cardinal Direction incorrect", expected, actual);
 	}

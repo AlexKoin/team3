@@ -3,8 +3,8 @@ package team3.weatherapis;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,7 +38,8 @@ public interface WeatherAPI {
 
 		try {
 			URL url = new URL(urlString);
-			URLConnection conn = url.openConnection();
+			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+			
 
 			BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			StringBuilder stringBuilder = new StringBuilder();
