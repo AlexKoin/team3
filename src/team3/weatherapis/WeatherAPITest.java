@@ -23,6 +23,8 @@ public class WeatherAPITest {
 		weatherApis.add(new WeatherAPICC());
 		// weatherbit.io
 		weatherApis.add(new WeatherAPIWB());
+		// darksky.net
+		weatherApis.add(new WeatherAPIDarkSky());
 
 		for (WeatherAPI api : weatherApis) {
 			System.out.println(api.getWeather().toString());

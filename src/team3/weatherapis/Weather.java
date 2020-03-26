@@ -41,7 +41,7 @@ public class Weather {
 	}
 
 	public void setLocation(String location) {
-		this.source = location;
+		this.location = location;
 	}
 
 	public String getTemperature() {

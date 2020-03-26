@@ -32,7 +32,7 @@ public class WeatherAPIDarkSky implements WeatherAPI {
 			try {
 				weather.setSource(source);
 				weather.setLocation(latitude + "/" + longitude + " (TEST)"); // TODO: needs conversion
-				float celsiusTemp = WeatherAPI.kelvinToCelsius(currentMap.get("temperature").toString());
+				float celsiusTemp = Float.parseFloat(currentMap.get("temperature").toString());
 				weather.setTemperature(Float.toString(celsiusTemp));
 				weather.setHumidity(currentMap.get("humidity").toString());
 				weather.setWindSpeed(currentMap.get("windSpeed").toString());
