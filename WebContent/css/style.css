@@ -1,0 +1,13 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	color: #192e45;
+	font-size: 12pt;
+	font-family: 'Baloo Da 2', cursive;
+	/* background-color: #78a5d6; s*/
+	/* background-color: #8e7a9e; purple */
+}
+
+.bg-accent {
+	background-color: #19b57c;
+}
