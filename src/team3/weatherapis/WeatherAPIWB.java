@@ -7,7 +7,8 @@ public class WeatherAPIWB implements WeatherAPI {
     private static final String source = "weatherbit.io";
     private static final String apiKey = "54e6200b9c554b03b0c77a61c48bb576";
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public Weather getWeather() {
         Weather weather = null;
         String location = "Riga,lv";

@@ -1,8 +1,6 @@
-package team3.dbManagement;
+package team3.dbmanagement;
 
 public class Result {
-
-
     private String apiAris;
     private String apiCc;
     private String apiDarkSky;
@@ -12,6 +10,7 @@ public class Result {
     private String apiWs;
 
     public Result() {
+    	this("", "", "", "", "", "", "");
     }
 
     public Result(String apiAris, String apiCc, String apiDarkSky, String apiOwm, String apiWapi, String apiWb, String apiWs) {

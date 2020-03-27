@@ -8,7 +8,8 @@ public class WeatherAPIARIS implements WeatherAPI {
     private static final String source = "aerisapi.com";
 
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public Weather getWeather() {
         Weather weather = null;
         String location = "riga,lv";
@@ -24,8 +25,7 @@ public class WeatherAPIARIS implements WeatherAPI {
         if (response != null) {
             weather = new Weather();
 
-            @SuppressWarnings("unchecked")
-            Map<String, Object> currentMap = (Map<String, Object>) WeatherAPI.jsonToMap(response);
+            Map<String, Object> currentMap = WeatherAPI.jsonToMap(response);
             ArrayList<Map<String, Object>> temp1 = (ArrayList<Map<String, Object>>) currentMap.get("response");
             Map<String, Object> details = temp1.get(0);
             ArrayList<Map<String, Object>> details2 = (ArrayList<Map<String, Object>>) details.get("periods");

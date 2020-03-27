@@ -21,7 +21,6 @@ public class HttpTest {
 	}
 
 	private void sendGetRequest(String... headers) throws Exception {
-
 		final String source = "weatherapi.com";
 		final String apiKey = "719433f15a3249d2b79154934202403";
 
