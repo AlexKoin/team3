@@ -6,13 +6,16 @@ public class WeatherAPIOWM implements WeatherAPI {
 
 	private static final String source = "openweathermap.org";
 	private static final String apiKey = "542d30a2a9b0fee31f38da18ad05ba41";
+    String location = null;
 
-	@Override
-	public Weather getWeather() {
+
+    @Override
+    public Weather getWeather(String location) {
+        this.location = location;
 		Weather weather = null;
-		String location = "Riga,lv";
+//		String location = "Riga,lv";
 
-		String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + apiKey;
+		String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + this.location + "&appid=" + apiKey;
 
 		String response = WeatherAPI.readFromUrl(urlString);
 

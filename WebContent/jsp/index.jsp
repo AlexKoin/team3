@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="team3.weatherapp.WeatherAppController" %>
+<%@ page import="team3.weatherapp.WeatherAppController"%>
+<%@ page import="team3.dbmanagement.DbManager"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,20 +32,26 @@
 	<div class="container bg-light rounded p-3">
 		<form>
 			<div class="input-group mb-3">
-				<input type="text" class="form-control" name="location" value="<%= request.getParameter("location") != null ? request.getParameter("location") : "" %>"
-					placeholder="Your location" aria-label="Location"
-					aria-describedby="basic-addon2">
+				<select class="custom-select" id="inputGroupSelect03" name="location">
+				<option disabled="disabled" selected="selected">Choose city...</option>
+				 <c:forEach items="<%= WeatherAppController.cityList() %>" var="listItem">
+        			<option>${listItem}</option>
+   				 </c:forEach>
+<!-- 				<select name="display" class="custom-select" id="inputGroupSelect03">
+					<option value="table">Table display</option>
+					<option value="average">Average data</option>
+				</select>
+				 -->
+				</select>
 				<div class="input-group-append">
 					<button class="btn btn-outline-primary" type="submit">Get</button>
 				</div>
 			</div>
-
 			<div class="input-group mb-3">
 				<select name="display" class="custom-select" id="inputGroupSelect03">
 					<option value="table">Table display</option>
 					<option value="average">Average data</option>
 				</select>
-				
 			</div>
 		</form>
 		

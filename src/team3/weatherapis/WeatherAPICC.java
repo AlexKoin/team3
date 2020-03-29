@@ -11,18 +11,21 @@ public class WeatherAPICC implements WeatherAPI {
 
 	private static final String source = "climacell.co";
 	private static final String apiKey = "dCj790S0DL1qEx8DmUdV9JDyY0aT0E4x";
+    String location = null;
 
-	@SuppressWarnings("unchecked")
+
+    @SuppressWarnings("unchecked")
 	@Override
-	public Weather getWeather() {
+    public Weather getWeather(String location) {
+        this.location = location;
 		Weather weather = null;
 		//String location = "riga";
 
-		String urlString = "https://api.climacell.co/v3/weather/realtime?" + "lat=56.946&lon=24.105" + "&fields=temp,humidity,wind_speed,wind_direction";
+		String urlString = "https://api.climacell.co/v3/weather/realtime?" + this.location + "&fields=temp,humidity,wind_speed,wind_direction";
 
 		StringBuilder stringBuilder = new StringBuilder();
 
-		try {			
+		try {
 			URL url = new URL(urlString);
 			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 

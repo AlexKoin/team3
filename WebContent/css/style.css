@@ -11,3 +11,21 @@ body {
 .bg-accent {
 	background-color: #19b57c;
 }
+
+
+.col-sm
+{
+	background-color: white;
+	border-radius: 10px;
+	border: 1px solid #F5F5F5;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	margin-right:15px;
+	margin-bottom:15px;
+	padding: 10px;
+	
+}
+
+.lastRow
+{
+	padding-botom: 30px;
+}

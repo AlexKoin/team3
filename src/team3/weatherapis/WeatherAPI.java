@@ -1,5 +1,8 @@
 package team3.weatherapis;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,15 +11,14 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 public interface WeatherAPI {
 
 	/**
 	 * @return object of type Weather
 	 */
-	public Weather getWeather();
+
+
+	public Weather getWeather(String location);
 
 	public static Map<String, Object> jsonToMap(String str) {
 		Map<String, Object> map = new Gson().fromJson(str, new TypeToken<HashMap<String, Object>>() {

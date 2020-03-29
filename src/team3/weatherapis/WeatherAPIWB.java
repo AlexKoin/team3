@@ -6,14 +6,15 @@ import java.util.Map;
 public class WeatherAPIWB implements WeatherAPI {
     private static final String source = "weatherbit.io";
     private static final String apiKey = "54e6200b9c554b03b0c77a61c48bb576";
+    String location = null;
 
-    @SuppressWarnings("unchecked")
-	@Override
-    public Weather getWeather() {
+    @Override
+    public Weather getWeather(String location) {
+        this.location = location;
+//        this.location = location;
         Weather weather = null;
-        String location = "Riga,lv";
-
-        String urlString ="https://api.weatherbit.io/v2.0/current?city=" + location + "&key=" + apiKey;
+//        String location = "Riga,lv";
+        String urlString ="https://api.weatherbit.io/v2.0/current?city=" + this.location + "&key=" + apiKey;
         String response = WeatherAPI.readFromUrl(urlString);
 
         if (response != null) {

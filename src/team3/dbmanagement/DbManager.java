@@ -1,79 +1,106 @@
 package team3.dbmanagement;
 
+import team3.weatherapis.*;
+
 import java.sql.*;
+import java.util.ArrayList;
+
 
 public class DbManager {
 
-	public static void main(String[] args) {
-		DbManager result = new DbManager();
-		result.findResult("Riga");
-	}
+    public Weather apiAris = null;
+    public Weather apiCc = null;
+    public Weather apiDs = null;
+    public Weather apiOwm = null;
+    public Weather apiWapi = null;
+    public Weather apiWb = null;
+    public Weather apiWs = null;
 
-	protected Connection conn;
-	Statement stmt = null;
+    protected  Connection conn;
+    Statement stmt = null;
+    public ArrayList<String> cityList = new ArrayList<String>();
 
-	public DbManager() {
+    public DbManager() {
+        String user = "root";
+        String pass = "coolTeam";
+        ResultSet rs = null;
 
-		Object obj = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/weatherApis?autoReconnect=true&useSSL=false", user, pass);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        
+        
+        try {
+            stmt = conn.createStatement();
+        } catch (Exception e) {
+        }
+        try {
+            rs = stmt.executeQuery("SELECT * FROM cities ORDER BY CityName");
+            while (rs.next()) {
+            	cityList.add(rs.getString("CityName"));
+ 
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }       
+    }
 
-		String dbName = "weatherApis";
-		String user = "root";
-		String pass = "coolTeam";
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/weatherApis?autoReconnect=true&useSSL=false",
-					user, pass);
-		} catch (Exception e) {
-			System.err.println(e);
-		}
-//        try {
-//            conn.setAutoCommit(false);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-	}
 
-	public Result findResult(String cityName) {
+    public void setCityToApis(String city)
+    {
+        ResultSet rs = null;
+        try {
+            stmt = conn.createStatement();
+        } catch (Exception e) {
+        }
+        try {
+            rs = stmt.executeQuery("SELECT * FROM cities WHERE CityName = '" + city + "'");
+            while (rs.next()) {
+                this.apiAris = new WeatherAPIARIS().getWeather(rs.getString("WeatherAPIARIS")) ;
+                this.apiCc = new WeatherAPICC().getWeather(rs.getString("WeatherAPICC"));
+                this.apiDs = new WeatherAPIDarkSky().getWeather(rs.getString("WeatherAPIDarkSky"));
+                this.apiOwm = new WeatherAPIOWM().getWeather(rs.getString("WeatherAPIOWM"));
+                this.apiWapi = new WeatherAPIWAPI().getWeather(rs.getString("WeatherAPIWAPI"));
+                this.apiWb = new WeatherAPIWB().getWeather(rs.getString("WeatherAPIWB"));
+                this.apiWs = new WeatherAPIWS().getWeather(rs.getString("WeatherAPIWS"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
-		ResultSet rs = null;
+    public Weather getApiAris() {
+        return this.apiAris;
+    }
 
-		String apiAris = null;
-		String apiCc = null;
-		String apiDarkSky = null;
-		String apiOwm = null;
-		String apiWapi = null;
-		String apiWb = null;
-		String apiWs = null;
+    public Weather getApiCc() {
+        return this.apiCc;
+    }
 
-		try {
-			stmt = conn.createStatement();
-		} catch (Exception e) {
-		}
+    public Weather getApiDs() {
+        return this.apiDs;
+    }
 
-		try {
-			rs = stmt.executeQuery("SELECT * FROM cities WHERE CityName = '" + cityName + "'");
-			while (rs.next()) {
-				apiAris = rs.getString("WeatherAPIARIS");
-				System.out.println(apiAris);
-				apiCc = rs.getString("WeatherAPICC");
-				System.out.println(apiCc);
-				apiDarkSky = rs.getString("WeatherAPIDarkSky");
-				System.out.println(apiDarkSky);
-				apiOwm = rs.getString("WeatherAPIOWM");
-				System.out.println(apiOwm);
-				apiWapi = rs.getString("WeatherAPIWAPI");
-				System.out.println(apiWapi);
-				apiWb = rs.getString("WeatherAPIWB");
-				System.out.println(apiWb);
-				apiWs = rs.getString("WeatherAPIWS");
-				System.out.println(apiWs);
+    public Weather getApiWapi() {
+        return this.apiWapi;
+    }
 
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+    public Weather getApiOwm() {
+        return this.apiOwm;
+    }
 
-		Result obj = new Result(apiAris, apiCc, apiDarkSky, apiOwm, apiWapi, apiWb, apiWs);
-		return obj;
-	}
+    public Weather getApiWb() {
+        return this.apiWb;
+    }
+
+    public Weather getApiWs() {
+        return this.apiWs;
+    }
+
+
 }
+
+

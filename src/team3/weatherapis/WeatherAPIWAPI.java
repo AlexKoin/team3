@@ -6,13 +6,16 @@ public class WeatherAPIWAPI implements WeatherAPI {
 
 	private static final String source = "weatherapi.com";
 	private static final String apiKey = "719433f15a3249d2b79154934202403";
+    String location = null;
 
-	@Override
-	public Weather getWeather() {
+
+    @Override
+    public Weather getWeather(String location) {
+        this.location = location;
 		Weather weather = null;
-		String location = "Riga";
+//		String location = "Riga";
 
-		String urlString = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + location;
+		String urlString = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + this.location;
 
 		String response = WeatherAPI.readFromUrl(urlString);
 

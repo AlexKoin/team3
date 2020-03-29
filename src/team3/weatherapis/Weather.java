@@ -1,5 +1,6 @@
 package team3.weatherapis;
 
+
 public class Weather {
 	// TODO: add implementation for source, location and timestamp
 	// TODO: fix field types as agreed
@@ -11,7 +12,7 @@ public class Weather {
 	private CardinalDirection windDirection; // TODO: should it be stored as String?
 	private String timestamp; // TODO: should it be 'date'?
 
-	private static final String suffixCelsius = "°C";
+	private static final String suffixCelsius = "ï¿½C";
 
 	public Weather() {
 		this("", "", "", "", "", CardinalDirection.NONE, "");
@@ -85,8 +86,10 @@ public class Weather {
 	}
 
 	public String toString() {
-		return "source: " + this.source + "\nlocation: " + this.location + "\ntemperature: " + this.temperature
-				+ suffixCelsius + ",\nhumidity: " + this.humidity + ",\nwind speed: " + this.windSpeed
-				+ ",\nwind direction: " + this.windDirection + "\ntime stamp: " + this.timestamp;
+		
+
+		return "source: " + this.source + "<br>" + "location: " + this.location + "<br>" + "temperature: " + this.temperature
+				+ suffixCelsius + "<br>" + "humidity: " + this.humidity + "<br>" +"wind speed: " + this.windSpeed
+				+ "<br>" + "wind direction: " + this.windDirection + "<br>" + "time stamp: " + this.timestamp;
 	}
 }

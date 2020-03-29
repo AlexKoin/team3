@@ -6,11 +6,14 @@ public class WeatherAPIWS implements WeatherAPI {
 
 	private static final String source = "weatherstack.com";
 	private static final String apiKey = "321c152f35c73d014a4b237d574a84e7";
+    String location = null;
 
-	@Override
-	public Weather getWeather() {
+
+    @Override
+    public Weather getWeather(String location) {
+        this.location = location;
 		Weather weather = null;
-		String location = "Riga";
+//		String location = "Riga";
 
 		String urlString = "http://api.weatherstack.com/current?access_key=" + apiKey + "&query=" + location;
 
