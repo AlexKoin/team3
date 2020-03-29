@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 
 public class DbManager {
+	
 
     public Weather apiAris = null;
     public Weather apiCc = null;
@@ -27,7 +28,7 @@ public class DbManager {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/weatherApis?autoReconnect=true&useSSL=false", user, pass);
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/weatherApis?useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false", user, pass);
         } catch (Exception e) {
             System.err.println(e);
         }
