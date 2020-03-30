@@ -22,13 +22,13 @@ public class DbManager {
     public ArrayList<String> cityList = new ArrayList<String>();
 
     public DbManager() {
-        String user = "root";
-        String pass = "coolTeam";
+        String user = "bouncyie_root";
+        String pass = "coolTeam123";
         ResultSet rs = null;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/weatherApis?useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false", user, pass);
+            conn = DriverManager.getConnection("jdbc:mysql://bouncy.ie:3306/bouncyie_weatherApis?useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false", user, pass);
         } catch (Exception e) {
             System.err.println(e);
         }
